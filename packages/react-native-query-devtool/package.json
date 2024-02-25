@@ -1,0 +1,38 @@
+{
+  "name": "@jdl/react-native-query-devtool",
+  "author": "Josymar De Leon",
+  "version": "1.0.0",
+  "description": "React native component designed to simplify the process of subscribing to changes in React Query data and forwarding this information to a debugger application",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "react-query",
+    "devtool"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.11.8",
+    "@types/react": "^18.2.48",
+    "@types/react-native": "^0.72.8",
+    "@types/react-query": "^1.2.9",
+    "babel-core": "^4.7.16",
+    "babel-runtime": "^6.26.0",
+    "react-native": "^0.72.9",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}
