@@ -1,0 +1,19 @@
+permissions: write-all
+name: Create Code Release
+on:
+  push:
+    tags:
+      - "**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - name: "🛠️ Build Artifacts"
+        with:
+          node-version: 18
+        run: yarn build-client
+
+      - name: "📦 Create Release"
+        run: gh release create ${GITHUB_REF#refs/*/} -t ${GITHUB_REF#refs/*/} --generate-notes --draft

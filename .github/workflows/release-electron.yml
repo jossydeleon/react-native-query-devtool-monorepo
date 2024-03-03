@@ -1,0 +1,34 @@
+permissions: write-all
+name: Create Release and Upload Artifacts
+on:
+  push:
+    tags:
+      - "**"
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [
+            { name: "macos", image: "macos-latest" },
+            # { name: "linux", image: "ubuntu-latest" },
+            # { name: "windows", image: "windows-latest" },
+          ]
+
+    runs-on: ${{ matrix.os.image }}
+
+    steps:
+      - name: "💻 Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "🛠️ Setup Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: "🔗 Install Dependencies"
+        run: yarn install --frozen-lockfile
+
+      - name: "📦 Publish Release"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: yarn publish-server
