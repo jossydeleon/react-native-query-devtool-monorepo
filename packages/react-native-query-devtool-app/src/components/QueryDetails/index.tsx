@@ -1,27 +1,13 @@
-import * as React from "react";
+import React from "react";
 import TitleHeader from "../TitleHeader";
 import LabelValueText from "../LabelValueText";
-import { JSONTree } from "react-json-tree";
 import QueryDetailsProps from "./types";
-import theme from "./treeTheme";
+import JSONTreeSearcheable from "../JSONTreeSearcheable";
 
 const QueryDetails: React.FC<QueryDetailsProps> = ({
   selectedQuery,
   queryLastUpdated,
 }) => {
-  const getItemString = (data: unknown) => {
-    const size = Object.keys(data).length;
-
-    if (size === 0) {
-      return null;
-    }
-
-    const pluralize = size > 1 ? "items" : "item";
-    const displayText = `${size} ${pluralize}`;
-
-    return <span style={{ fontSize: 11 }}>{displayText}</span>;
-  };
-
   if (selectedQuery) {
     return (
       <div className="column">
@@ -45,12 +31,7 @@ const QueryDetails: React.FC<QueryDetailsProps> = ({
 
           <div>
             <TitleHeader title="Data Explorer" />
-            <JSONTree
-              data={selectedQuery?.data}
-              theme={theme}
-              shouldExpandNodeInitially={() => true}
-              getItemString={(_, data) => getItemString(data)}
-            />
+            <JSONTreeSearcheable data={selectedQuery?.data} />
           </div>
         </div>
       </div>
