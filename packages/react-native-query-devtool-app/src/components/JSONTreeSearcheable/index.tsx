@@ -6,12 +6,17 @@ import Searchbar from "../Searchbar";
 import useTreeSearcheableData from "./useTreeSearcheableData";
 
 const JSONTreeSearcheable: React.FC<JSONTreeSearcheableProps> = ({ data }) => {
-  const { searchTerm, setSearchTerm, getItemString, highlightWord } =
-    useTreeSearcheableData();
+  const {
+    searchTerm,
+    setSearchTerm,
+    getItemString,
+    highlightLabel,
+    highlightValue,
+  } = useTreeSearcheableData();
 
   return (
-    <div style={{ flex: 1, borderWidth: 1, borderColor: "green" }}>
-      <div>
+    <div>
+      <div className="json-tree-header">
         <Searchbar value={searchTerm} setValue={setSearchTerm} />
       </div>
 
@@ -22,8 +27,11 @@ const JSONTreeSearcheable: React.FC<JSONTreeSearcheableProps> = ({ data }) => {
         getItemString={() => (
           <span dangerouslySetInnerHTML={{ __html: getItemString(data) }} />
         )}
+        labelRenderer={([key]) => (
+          <span dangerouslySetInnerHTML={{ __html: highlightLabel(key) }} />
+        )}
         valueRenderer={(value: string) => (
-          <span dangerouslySetInnerHTML={{ __html: highlightWord(value) }} />
+          <span dangerouslySetInnerHTML={{ __html: highlightValue(value) }} />
         )}
       />
     </div>

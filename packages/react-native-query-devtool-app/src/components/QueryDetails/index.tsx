@@ -29,10 +29,8 @@ const QueryDetails: React.FC<QueryDetailsProps> = ({
 
           <div style={{ marginBottom: 20 }} />
 
-          <div>
-            <TitleHeader title="Data Explorer" />
-            <JSONTreeSearcheable data={selectedQuery?.data} />
-          </div>
+          <TitleHeader title="Data Explorer" />
+          <JSONTreeSearcheable data={selectedQuery?.data} />
         </div>
       </div>
     );

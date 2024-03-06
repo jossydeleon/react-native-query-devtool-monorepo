@@ -16,8 +16,21 @@ const useTreeSearcheableData = () => {
     return `<span style={{ fontSize: 11 }}>${displayText}</span>`;
   };
 
-  function highlightWord(value: string) {
+  const highlightLabel = (label: string | number) => {
+    if (!searchTerm.trim()) return label;
+
+    const regex = new RegExp(searchTerm, "gi");
+    return label
+      .toString()
+      .replace(
+        regex,
+        (match) => `<span style="background-color: purple">${match}</span>`
+      );
+  };
+
+  const highlightValue = (value: string) => {
     if (!searchTerm.trim()) return value;
+
     const regex = new RegExp(searchTerm, "gi");
     return value
       .toString()
@@ -25,13 +38,14 @@ const useTreeSearcheableData = () => {
         regex,
         (match) => `<span style="background-color: yellow">${match}</span>`
       );
-  }
+  };
 
   return {
     searchTerm,
     setSearchTerm,
     getItemString,
-    highlightWord,
+    highlightLabel,
+    highlightValue,
   };
 };
 
