@@ -88,4 +88,10 @@
   align-items: center;
   justify-content: space-between;
   padding-inline: 5px;
+  margin-bottom: 5px;
+}
+
+.json-tree-header-container {
+  overflow: auto;
+  height: 540px;
 }

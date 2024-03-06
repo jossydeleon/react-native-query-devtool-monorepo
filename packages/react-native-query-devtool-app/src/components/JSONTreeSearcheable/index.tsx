@@ -19,21 +19,22 @@ const JSONTreeSearcheable: React.FC<JSONTreeSearcheableProps> = ({ data }) => {
       <div className="json-tree-header">
         <Searchbar value={searchTerm} setValue={setSearchTerm} />
       </div>
-
-      <JSONTree
-        data={data}
-        theme={theme}
-        shouldExpandNodeInitially={() => true}
-        getItemString={() => (
-          <span dangerouslySetInnerHTML={{ __html: getItemString(data) }} />
-        )}
-        labelRenderer={([key]) => (
-          <span dangerouslySetInnerHTML={{ __html: highlightLabel(key) }} />
-        )}
-        valueRenderer={(value: string) => (
-          <span dangerouslySetInnerHTML={{ __html: highlightValue(value) }} />
-        )}
-      />
+      <div className="json-tree-header-container">
+        <JSONTree
+          data={data}
+          theme={theme}
+          shouldExpandNodeInitially={() => true}
+          getItemString={() => (
+            <span dangerouslySetInnerHTML={{ __html: getItemString(data) }} />
+          )}
+          labelRenderer={([key]) => (
+            <span dangerouslySetInnerHTML={{ __html: highlightLabel(key) }} />
+          )}
+          valueRenderer={(value: string) => (
+            <span dangerouslySetInnerHTML={{ __html: highlightValue(value) }} />
+          )}
+        />
+      </div>
     </div>
   );
 };
