@@ -6,6 +6,7 @@
   },
   "version": "1.0.0",
   "description": "React native component designed to simplify the process of subscribing to changes in React Query data and forwarding this information to a debugger application",
+  "repository": "https://github.com/jossydeleon/react-native-query-devtool-monorepo.git",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
