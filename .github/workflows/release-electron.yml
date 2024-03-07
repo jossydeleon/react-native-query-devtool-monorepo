@@ -9,9 +9,9 @@ jobs:
     strategy:
       matrix:
         os: [
+            { name: "windows", image: "windows-latest" },
             { name: "macos", image: "macos-latest" },
             # { name: "linux", image: "ubuntu-latest" },
-            { name: "windows", image: "windows-latest" },
           ]
 
     runs-on: ${{ matrix.os.image }}
