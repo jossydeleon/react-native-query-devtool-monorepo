@@ -1,6 +1,9 @@
 {
   "name": "@jdl/react-native-query-devtool",
-  "author": "Josymar De Leon",
+  "author": {
+    "name": "Josymar",
+    "email": "josymardeleon.dev@gmail.com"
+  },
   "version": "1.0.0",
   "description": "React native component designed to simplify the process of subscribing to changes in React Query data and forwarding this information to a debugger application",
   "main": "./dist/index.js",

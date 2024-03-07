@@ -1,7 +1,10 @@
 {
   "name": "@jdl/react-native-query-devtool-monorepo",
   "description": "React Native Query Devtool is a monorepo containing a React Native component and a standalone app to visualize query data in a similar way to react-query-devtools for the web.",
-  "author": "Josymar De Leon",
+  "author": {
+    "name": "Josymar",
+    "email": "josymardeleon.dev@gmail.com"
+  },
   "version": "1.0.0",
   "private": true,
   "scripts": {
