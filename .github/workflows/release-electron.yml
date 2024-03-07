@@ -8,10 +8,9 @@ jobs:
   build:
     strategy:
       matrix:
-        os:
-          [
+        os: [
             { name: "macos", image: "macos-latest" },
-            { name: "linux", image: "ubuntu-latest" },
+            # { name: "linux", image: "ubuntu-latest" },
             { name: "windows", image: "windows-latest" },
           ]
 
