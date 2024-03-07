@@ -76,13 +76,22 @@
   background-color: #172335;
 }
 
-.searchbar-container {
-  flex: 1;
-}
-
 .searchbar-input {
   box-sizing: border-box;
   height: 25px;
   width: 300px;
   font-size: medium;
+}
+
+.json-tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 5px;
+  margin-bottom: 5px;
+}
+
+.json-tree-header-container {
+  overflow: auto;
+  height: 540px;
 }
