@@ -15,10 +15,10 @@ const config: ForgeConfig = {
   },
   rebuildConfig: {},
   makers: [
-    new MakerSquirrel({}),
+    new MakerSquirrel({ name: "rnqdt" }),
     new MakerZIP({}, ["darwin"]),
-    new MakerRpm({}),
-    new MakerDeb({}),
+    new MakerRpm({ options: { name: "rnqdt" } }),
+    new MakerDeb({ options: { name: "rnqdt" } }),
   ],
   publishers: [
     {

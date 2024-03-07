@@ -15,11 +15,11 @@ The standalone app allows you to visualize and debug query data from your React 
 
 ## Installation
 
-You can download the standalone app from the following link. Currently, it's available only for **macOS M1**:
+You can download the standalone app from the following link. Currently, it's available only for **macOS M1** and **Windows x64**:
 
 [Download latest App](https://github.com/jossydeleon/react-native-query-devtool-monorepo/releases)
 
-**Windows and Linux users:** You need to build the app from source as it's currently only available for **macOS M1**. Ensure to set up your environment accordingly before building the app.
+**Linux users:** You need to build the app from source as it's currently only available for **macOS M1** and **Windows x64**. Ensure to set up your environment accordingly before building the app.
 
 ```bash
 # Go to app folder
