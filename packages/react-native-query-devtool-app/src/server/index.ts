@@ -66,13 +66,13 @@ const createServer = (mainWindow: BrowserWindow) => {
       server.close();
       res.end("Server closed.");
 
-      console.info(`Query Debugger Tool server closed`);
+      console.info(`React Native Query Devtool server closed`);
     }
   });
 
   //start server
   server.listen(port, () => {
-    console.info(`Query Debugger Tool listening on port: ${port}`);
+    console.info(`React Native Query Devtool listening on port: ${port}`);
   });
 };
 
