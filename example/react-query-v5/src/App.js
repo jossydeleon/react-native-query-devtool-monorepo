@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 import { Users } from "./components/Users";
-import { QueryNativeDevtool } from "@jdl/react-native-query-devtool/src";
+import { QueryNativeDevtool } from "@jsmdeleon/react-native-query-devtool/src";
 
 const queryClient = new QueryClient();
 

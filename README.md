@@ -11,7 +11,7 @@ React Native Query Devtool is a monorepo containing a React Native component and
 
 ## Standalone App
 
-The standalone app allows you to visualize and debug query data from your React Native application using the `@jdl/react-native-query-devtool` package.
+The standalone app allows you to visualize and debug query data from your React Native application using the `@jsmdeleon/react-native-query-devtool` package.
 
 ## Installation
 
@@ -39,9 +39,9 @@ After running the build command, you'll find the freshly built app in a new fold
 To use the devtool component in your React Native project, install the package:
 
 ```bash
-npm install @jdl/react-native-query-devtool
+npm install @jsmdeleon/react-native-query-devtool
 # or
-yarn add @jdl/react-native-query-devtool
+yarn add @jsmdeleon/react-native-query-devtool
 ```
 
 ## Usage
@@ -49,7 +49,7 @@ yarn add @jdl/react-native-query-devtool
 In your React Native application, import `QueryNativeDevtool` to send query data to the server app for debugging:
 
 ```javascript
-import { QueryNativeDevtool } from "@jdl/react-native-query-devtool";
+import { QueryNativeDevtool } from "@jsmdeleon/react-native-query-devtool";
 
 export default function App() {
   return (
@@ -68,7 +68,7 @@ export default function App() {
 If your app runs `react-query v3` pass `version="v3"` prop to `QueryNativeDevtool`
 
 ```javascript
-import { QueryNativeDevtool } from "@jdl/react-native-query-devtool";
+import { QueryNativeDevtool } from "@jsmdeleon/react-native-query-devtool";
 
 export default function App() {
   return (
@@ -86,7 +86,7 @@ This will enable your React Native application to send query data to the Electro
 
 ## Examples
 
-In the example folder, you can find example projects demonstrating the usage of `@jdl/react-native-query-devtool` with different versions of React Query (v3, v4, and v5). To test the examples, navigate to the example folder, select the desired example, and run yarn ios or yarn android.
+In the example folder, you can find example projects demonstrating the usage of `@jsmdeleon/react-native-query-devtool` with different versions of React Query (v3, v4, and v5). To test the examples, navigate to the example folder, select the desired example, and run yarn ios or yarn android.
 
 ```bash
 cd example
