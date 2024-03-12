@@ -1,14 +1,20 @@
 import React from "react";
-import useQueryDevtool from "./hooks/useQueryDevtool";
+
+import RemoteDebugger from "./components/RemoteDebugger";
 import { QueryDevtoolProps } from "./types";
 
 const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
   queryClient,
   version = "v5",
+  useRemoteDebugger = false,
 }) => {
-  useQueryDevtool({ queryClient, version });
-
-  return null;
+  return (
+    <>
+      {useRemoteDebugger && (
+        <RemoteDebugger queryClient={queryClient} version={version} />
+      )}
+    </>
+  );
 };
 
 export { QueryNativeDevtool };
