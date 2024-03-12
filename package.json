@@ -1,5 +1,5 @@
 {
-  "name": "@jdl/react-native-query-devtool-monorepo",
+  "name": "@jsmdeleon/react-native-query-devtool-monorepo",
   "description": "React Native Query Devtool is a monorepo containing a React Native component and a standalone app to visualize query data in a similar way to react-query-devtools for the web.",
   "author": {
     "name": "Josymar",
@@ -12,6 +12,7 @@
     "build-server": "cd ./packages/react-native-query-devtool-app && electron-forge make",
     "publish-server":"cd ./packages/react-native-query-devtool-app && electron-forge publish",
     "build-client": "cd ./packages/react-native-query-devtool && tsup",
+    "publish-client": "cd ./packages/react-native-query-devtool && yarn publish --access public",
     "v3-example-ios": "cd ./example/react-query-v3 && expo start --ios",
     "v3-example-android": "cd ./example/react-query-v3 && expo start --android"
   },
