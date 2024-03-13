@@ -1,24 +1,28 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import { FlatList } from "react-native";
 
 import {
   ListenerEventType,
   QueryDevtoolData,
   QueryDevtoolProps,
   QueryKey,
-} from '../../types';
+} from "../../types";
 import {
   getQueryDevtoolData,
   handleQueryDevtoolData,
-} from '../../utils/queryListener';
+} from "../../utils/queryListener";
 
 const useDevtoolData = (props: QueryDevtoolProps) => {
-  const { queryClient, version = 'v5' } = props;
+  const { queryClient, version = "v5" } = props;
 
   const isInitialized = useRef(false);
+  const flalistRef = useRef<FlatList>();
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const [queries, setQueries] = useState<QueryDevtoolData[]>([]);
   const [selectedQueryKey, setSelectedQueryKey] = useState<QueryKey>();
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     if (isInitialized.current) return;
@@ -31,6 +35,12 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     setQueries(allQueries);
 
     isInitialized.current = true;
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [version, queryClient]);
 
   useEffect(() => {
@@ -79,19 +89,15 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
 
   const filteredQueries = useMemo(
     () =>
-      queries.filter(
-        (query) =>
-          query.queryKey
-            ?.toString()
-            .toLowerCase()
-            .includes(filter.toLowerCase())
+      queries.filter((query) =>
+        query.queryKey?.toString().toLowerCase().includes(filter.toLowerCase())
       ),
     [queries, filter]
   );
 
   const handleSelectedRow = useCallback(
     (indexRow?: number) => {
-      if (typeof indexRow !== 'number') {
+      if (typeof indexRow !== "number") {
         setSelectedQueryKey(undefined);
         return;
       }
@@ -100,6 +106,16 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
       const queryKey = queriesSource[indexRow].queryKey;
 
       setSelectedQueryKey((prev) => (prev !== queryKey ? queryKey : undefined));
+
+      timeoutRef.current = setTimeout(
+        () =>
+          flalistRef.current.scrollToIndex({
+            index: indexRow,
+            animated: true,
+            viewPosition: 1,
+          }),
+        200
+      );
     },
     [queries, filteredQueries, filter]
   );
@@ -109,6 +125,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     selectedQuery,
     filter,
     filteredQueries,
+    flalistRef,
     setFilter,
     handleSelectedRow,
   };

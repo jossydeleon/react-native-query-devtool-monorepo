@@ -34,7 +34,8 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   expandedFlatlist: {
-    height: 500,
+    height: 400,
+    marginBottom: 20,
   },
   collapsedFlatlist: {
     height: 250,

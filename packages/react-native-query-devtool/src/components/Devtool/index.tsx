@@ -1,11 +1,8 @@
 import React from "react";
 
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View, FlatList } from "react-native";
 
-import {
-  ScrollView as ActionsheetScrollview,
-  FlatList,
-} from "react-native-actions-sheet";
+import { ScrollView as ActionsheetScrollview } from "react-native-actions-sheet";
 
 import { QueryDevtoolProps } from "../../types";
 import CloseButton from "../CloseButton";
@@ -21,13 +18,18 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
     filteredQueries,
     selectedQuery,
     filter,
+    flalistRef,
     setFilter,
     handleSelectedRow,
   } = useDevtoolData(props);
 
   const renderHeader = () => (
     <View style={styles.searchbarContainer}>
-      <Searchbar filter={filter} setFilter={setFilter} />
+      <Searchbar
+        filter={filter}
+        setFilter={setFilter}
+        placeholder={`${filteredQueries.length} Queries`}
+      />
     </View>
   );
 
@@ -61,13 +63,17 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
       style={styles.actionScrollviewContainer}
     >
       {renderHeader()}
-      <ScrollView horizontal scrollEnabled={false}>
+      <ScrollView
+        horizontal
+        scrollEnabled={false}
+        style={[
+          selectedQuery ? styles.collapsedFlatlist : styles.expandedFlatlist,
+        ]}
+      >
         <FlatList
+          ref={flalistRef}
           data={filteredQueries}
-          style={[
-            styles.queriesFlatlist,
-            selectedQuery ? styles.collapsedFlatlist : styles.expandedFlatlist,
-          ]}
+          style={[styles.queriesFlatlist]}
           renderItem={({ item, index }) => (
             <QueryRow
               index={index}
