@@ -25,11 +25,7 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
 
   const renderHeader = () => (
     <View style={styles.searchbarContainer}>
-      <Searchbar
-        filter={filter}
-        setFilter={setFilter}
-        placeholder={`${filteredQueries.length} Queries`}
-      />
+      <Searchbar filter={filter} setFilter={setFilter} />
     </View>
   );
 

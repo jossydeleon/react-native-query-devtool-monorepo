@@ -17,7 +17,8 @@ const Searchbar: React.FC<SearchbarProps> = ({
       onChangeText={setFilter}
       autoCapitalize="none"
       placeholder={placeholder}
-      placeholderTextColor="black"
+      placeholderTextColor="gray"
+      clearButtonMode="while-editing"
     />
   );
 };
