@@ -49,7 +49,7 @@ If your app runs `react-query v3` pass `version="v3"` prop to `QueryNativeDevtoo
 
 ## Standalone app (Optional)
 
-If you want more room to debug your query data, you can download the standalone app from the following link. Currently, it's available only for **macOS M1** and **Windows x64**. See [repo](https://github.com/jossydeleon/react-native-query-devtool-monorepo/tree/main/packages/react-native-query-devtool-app)
+If you want more room to debug your query data, you can download the standalone app from the following link. Currently, it's available only for **macOS M1** and **Windows x64**. Check [Standalone Repo](https://github.com/jossydeleon/react-native-query-devtool-monorepo/tree/main/packages/react-native-query-devtool-app)
 
 ```javascript
 export default function App() {
@@ -85,6 +85,8 @@ After running the build command, you'll find the freshly built app in a new fold
 ## Examples
 
 In the example folder, you can find example projects demonstrating the usage of `@jsmdeleon/react-native-query-devtool` with different versions of React Query (v3, v4, and v5). To test the examples, navigate to the example folder, select the desired example, and run yarn ios or yarn android.
+
+[Examples Repo](https://github.com/jossydeleon/react-native-query-devtool-monorepo/tree/main/example)
 
 ```bash
 cd example
