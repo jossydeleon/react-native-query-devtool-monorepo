@@ -2,7 +2,7 @@ import {
   ListenerEventType,
   QueryDevtoolData,
   ReactQueryVersion,
-} from "../types";
+} from '../types';
 
 export const getQueryDevtoolData = (
   version: ReactQueryVersion,
@@ -13,9 +13,9 @@ export const getQueryDevtoolData = (
   const isStale = query.isStale();
   const isActive = query.isActive() && query.getObserversCount() > 0;
   const isFetching =
-    version === "v3"
+    version === 'v3'
       ? query.isFetching()
-      : query.state.fetchStatus === "fetching";
+      : query.state.fetchStatus === 'fetching';
 
   return {
     queryKey: query.queryKey,
@@ -36,10 +36,10 @@ export const handleQueryDevtoolData = (
   queryDevtoolDataArray: QueryDevtoolData[]
 ) => {
   switch (listenerType) {
-    case "queryAdded":
-    case "queryUpdated":
-    case "added":
-    case "updated":
+    case 'queryAdded':
+    case 'queryUpdated':
+    case 'added':
+    case 'updated':
       const queryData = query.state.data;
       if (queryData) {
         return updateQueryDevtoolDataArray(
@@ -50,16 +50,16 @@ export const handleQueryDevtoolData = (
         );
       }
       break;
-    case "observerAdded":
-    case "observerRemoved":
-    case "observerResultsUpdated":
+    case 'observerAdded':
+    case 'observerRemoved':
+    case 'observerResultsUpdated':
       if (queryKeyIndex !== -1) {
         queryDevtoolDataArray[queryKeyIndex].observers =
           query.getObserversCount();
       }
       break;
-    case "queryRemoved":
-    case "removed":
+    case 'queryRemoved':
+    case 'removed':
       if (queryKeyIndex !== -1) {
         queryDevtoolDataArray.splice(queryKeyIndex, 1);
       }

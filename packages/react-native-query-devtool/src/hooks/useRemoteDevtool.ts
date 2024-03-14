@@ -1,21 +1,23 @@
 import { useEffect, useRef, useState } from "react";
+
 import { Platform } from "react-native";
-import { isDevMode } from "../utils/isDevMode";
-import debounce from "../utils/debounce";
-import {
-  getQueryDevtoolData,
-  handleQueryDevtoolData,
-} from "../utils/queryListener";
+
 import {
   ListenerEventType,
   QueryDevtoolData,
   QueryDevtoolProps,
 } from "../types";
+import debounce from "../utils/debounce";
+import { isDevMode } from "../utils/isDevMode";
+import {
+  getQueryDevtoolData,
+  handleQueryDevtoolData,
+} from "../utils/queryListener";
 
 const PORT = 9017;
 
-const useQueryDevtool = (props: QueryDevtoolProps) => {
-  const { queryClient, version } = props;
+const useRemoteDevtool = (props: QueryDevtoolProps) => {
+  const { queryClient, version = "v5" } = props;
 
   const websocket = useRef<WebSocket>();
   const timeoutRef = useRef<NodeJS.Timeout>();
@@ -44,7 +46,7 @@ const useQueryDevtool = (props: QueryDevtoolProps) => {
       // When connection is established with server, all queries are sent once
       websocket.current.onopen = () => {
         setConnnected(true);
-        console.info("✅", "Conected with Native Query Devtool");
+        console.info("✅ Conected with Native Query Devtool");
 
         const allQueries = queryClient
           .getQueryCache()
@@ -71,10 +73,11 @@ const useQueryDevtool = (props: QueryDevtoolProps) => {
         clearTimeout(timeoutRef.current);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    if (!connected) return;
+
     const debounceProcessAndSendData = debounce(
       (queryData: QueryDevtoolData[]) => sendData(queryData),
       400
@@ -114,7 +117,7 @@ const useQueryDevtool = (props: QueryDevtoolProps) => {
         subscribe();
       }
     };
-  }, [connected, queryClient]);
+  }, [connected, queryClient, version]);
 };
 
-export default useQueryDevtool;
+export default useRemoteDevtool;
