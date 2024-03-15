@@ -23,6 +23,7 @@ const JSONTreeSearcheable: React.FC<JSONTreeSearcheableProps> = ({ data }) => {
         <JSONTree
           data={data}
           theme={theme}
+          keyPath={["data"]}
           getItemString={(_, currentData) => (
             <span
               dangerouslySetInnerHTML={{ __html: getItemString(currentData) }}
