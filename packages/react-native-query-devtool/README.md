@@ -3,7 +3,7 @@
 ## Features
 
 - Provides a component for integrating query data in React Native applications running react-query v3, and @tanstack/react-query v4 and v5.
-- (Optional) Includes a standalone app to visualize and help debug query data.
+- (Optional) Includes a standalone app to visualize and help debug query data. [Download latest App](https://github.com/jossydeleon/react-native-query-devtool-monorepo/releases)
 
 ## Installation
 
