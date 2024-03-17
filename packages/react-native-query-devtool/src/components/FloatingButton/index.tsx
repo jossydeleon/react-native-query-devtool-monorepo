@@ -15,10 +15,7 @@ const FloatingButton: React.FC<Props> = ({ onPress }) => {
       onPress={onPress}
       style={styles.container}
     >
-      <Image
-        style={styles.image}
-        source={require('../../../assets/rqlogo.png')}
-      />
+      <Image style={styles.image} source={require('../../assets/rqlogo.png')} />
     </TouchableOpacity>
   );
 };

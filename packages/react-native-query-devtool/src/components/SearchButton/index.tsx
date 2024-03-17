@@ -10,7 +10,7 @@ const SearchButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <Image
-        source={require('../../../assets/search.png')}
+        source={require('../../assets/search.png')}
         style={styles.container}
       />
     </Pressable>

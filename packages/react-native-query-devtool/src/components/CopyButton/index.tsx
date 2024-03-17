@@ -10,7 +10,7 @@ const CopyButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <Image
-        source={require('../../../assets/copy.png')}
+        source={require('../../assets/copy.png')}
         style={styles.container}
       />
     </Pressable>
