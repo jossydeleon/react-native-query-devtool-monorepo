@@ -1,8 +1,8 @@
 /**
  * Retrieves the value from a nested object or array based on the provided key path
- * @param {any} data - The root object or array from which to retrieve the value
- * @param {string[]} keyPath - An array representing the path to the desired value
- * @returns {any} The value located at the specified key path, or undefined
+ * @param data - The root object or array from which to retrieve the value
+ * @param keyPath - An array representing the path to the desired value
+ * @returns The value located at the specified key path, or undefined
  */
 function getNodeValue(data: any, keyPath: string[]) {
   let value = data;

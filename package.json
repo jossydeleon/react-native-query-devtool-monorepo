@@ -10,7 +10,7 @@
   "scripts": {
     "dev-electron": "cd ./packages/react-native-query-devtool-app && electron-forge start",
     "build-server": "cd ./packages/react-native-query-devtool-app && electron-forge make",
-    "publish-server":"cd ./packages/react-native-query-devtool-app && electron-forge publish",
+    "publish-server": "cd ./packages/react-native-query-devtool-app && electron-forge publish",
     "build-client": "cd ./packages/react-native-query-devtool && tsup",
     "publish-client": "cd ./packages/react-native-query-devtool && yarn publish --access public",
     "v3-example-ios": "cd ./example/react-query-v3 && expo start --ios",

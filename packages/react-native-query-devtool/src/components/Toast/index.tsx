@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Text, StyleSheet, Animated } from "react-native";
+import React, { useEffect, useState } from "react";
 
-const Toast: React.FC<{ message: string; duration?: number }> = ({
-  message,
-  duration = 5000,
-}) => {
+import { Animated, StyleSheet, Text } from "react-native";
+
+interface Props {
+  message: string;
+  duration?: number;
+}
+
+const Toast: React.FC<Props> = ({ message, duration = 5000 }) => {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {
@@ -39,12 +42,13 @@ const Toast: React.FC<{ message: string; duration?: number }> = ({
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    top: 20,
+    bottom: 50,
     left: 20,
     right: 20,
     backgroundColor: "rgba(0, 0, 0, 0.8)",
     borderRadius: 5,
     padding: 10,
+    zIndex: 99,
   },
   message: {
     textAlign: "center",

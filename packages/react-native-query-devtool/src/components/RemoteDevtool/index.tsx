@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { QueryDevtoolProps } from '../../types';
+import { QueryDevtoolProps } from "../../types";
 
-import useRemoteDevtool from '../../hooks/useRemoteDevtool';
+import useRemoteDevtool from "../../hooks/useRemoteDevtool";
 
 const RemoteDebugger: React.FC<QueryDevtoolProps> = ({
   queryClient,

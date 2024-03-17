@@ -4,7 +4,11 @@ import { Image, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-const FloatingButton: React.FC<{ onPress: () => void }> = ({ onPress }) => {
+interface Props {
+  onPress: () => void;
+}
+
+const FloatingButton: React.FC<Props> = ({ onPress }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
