@@ -4,6 +4,9 @@
 
 Standalone app to visualize and help debug query data. You can download it from the following link. Currently, it's available only for **macOS M1** and **Windows x64**. [Download latest App](https://github.com/jossydeleon/react-native-query-devtool-monorepo/releases)
 
+![Screenshot 2024-03-17 at 3 31 31 PM](https://github.com/jossydeleon/react-native-query-devtool-monorepo/assets/25192002/52789d5f-df95-4dff-bc09-5435bb92e814)
+
+
 **Note:** The binaries provided are not signed. If you have concerns about security or trust, you can choose to build the app from the source code for your machine.
 
 **Linux users:** You need to build the app from source as it's currently only available for **macOS M1** and **Windows x64**. Ensure to set up your environment accordingly before building the app.
