@@ -2,7 +2,9 @@
 
 React Native Query Devtool is a monorepo containing a React Native component and a standalone app to visualize query data in a similar way to react-query-devtools for the web.
 
-![Screenshot](https://github.com/jossydeleon/react-native-query-devtool-monorepo/assets/25192002/981f444f-4a27-4d41-8a95-bab861d7edab)
+<p align="center">
+  <img src="https://github.com/jossydeleon/react-native-query-devtool-monorepo/assets/25192002/7c5011a9-262a-477e-99e8-af10289bc149" alt="rnqdt" style="display: block; margin: auto;">
+</p>
 
 ## Features
 
