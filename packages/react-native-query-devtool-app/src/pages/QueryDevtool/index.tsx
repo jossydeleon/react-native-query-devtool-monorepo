@@ -36,6 +36,10 @@ const QueryDevtool = () => {
                       <div
                         className="observers-container"
                         style={{
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: 20,
+                          height: 20,
                           backgroundColor:
                             query.observers === 0
                               ? "gray"

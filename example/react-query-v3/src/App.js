@@ -18,7 +18,11 @@ export default function App() {
         </View>
       </QueryClientProvider>
 
-      <QueryNativeDevtool queryClient={queryClient} version="v3" />
+      <QueryNativeDevtool
+        queryClient={queryClient}
+        version="v3"
+        useRemoteDevtool={false}
+      />
     </SafeAreaView>
   );
 }

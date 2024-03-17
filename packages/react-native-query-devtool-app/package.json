@@ -1,7 +1,7 @@
 {
   "name": "@jsmdeleon/react-native-query-devtool-app",
   "productName": "react-native-query-devtool-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The standalone app allows you to visualize and debug query data from your React Native application using the @jsmdeleon/react-native-query-devtool package.",
   "main": ".webpack/main",
   "scripts": {
