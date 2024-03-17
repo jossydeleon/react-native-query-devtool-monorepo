@@ -8,12 +8,14 @@ import { styles } from "./style";
 interface Props {
   selectedQueryData: any;
   searchTerm: string;
+  onSelectedToCopy: (node: any) => void;
   onSelectedNode: (nodeTitle: string, node: any) => void;
 }
 
 const DataExplorer: React.FC<Props> = ({
   selectedQueryData,
   searchTerm,
+  onSelectedToCopy,
   onSelectedNode,
 }) => {
   if (!selectedQueryData) return null;
@@ -23,6 +25,7 @@ const DataExplorer: React.FC<Props> = ({
       <JSONTreeData
         data={selectedQueryData}
         searchTerm={searchTerm}
+        onSelectedToCopy={onSelectedToCopy}
         onSelectedNode={onSelectedNode}
       />
     </View>

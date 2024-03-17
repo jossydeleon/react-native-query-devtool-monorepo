@@ -29,6 +29,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
 
   const [searchStringQueries, setSearchStringQueries] = useState("");
   const [searchStringData, setSearchStringData] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   // State to determine where to search (2nd Searchbar)
   const [dataToLookup, setDataToLookup] = useState<{
@@ -75,7 +76,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
 
       setQueries((prevData) => {
         const queryKeyIndex = prevData.findIndex(
-          (item) => item.queryKey === queryKey,
+          (item) => item.queryKey === queryKey
         );
 
         return handleQueryDevtoolData(
@@ -83,7 +84,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
           listenerType,
           queryKeyIndex,
           query,
-          [...prevData],
+          [...prevData]
         );
       });
     });
@@ -97,9 +98,9 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     () =>
       queries.find(
         (query) =>
-          JSON.stringify(query?.queryKey) === JSON.stringify(selectedQueryKey),
+          JSON.stringify(query?.queryKey) === JSON.stringify(selectedQueryKey)
       ),
-    [selectedQueryKey, queries],
+    [selectedQueryKey, queries]
   );
 
   const filteredQueries = useMemo(
@@ -108,9 +109,9 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
         query.queryKey
           ?.toString()
           .toLowerCase()
-          .includes(searchStringQueries.toLowerCase()),
+          .includes(searchStringQueries.toLowerCase())
       ),
-    [queries, searchStringQueries],
+    [queries, searchStringQueries]
   );
 
   const handleSelectedRow = useCallback(
@@ -138,8 +139,16 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
         });
       }, 200);
     },
-    [queries, filteredQueries, searchStringQueries],
+    [queries, filteredQueries, searchStringQueries]
   );
+
+  const handleShowToast = () => {
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  };
 
   const handleSearch = useDebounce((term) => {
     const whereToSearch = dataToLookup?.nodeData
@@ -159,6 +168,11 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     }
   };
 
+  const handleSelectedToCopy = (node: any) => {
+    console.log("📋", JSON.stringify(node));
+    handleShowToast();
+  };
+
   const handleOnselectedNode = (nodeTitle: string, nodeData: any) => {
     setDataToLookup({ nodeTitle, nodeData });
     searchRef.current?.focus();
@@ -174,10 +188,12 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     searchStringData,
     filteredData,
     dataToLookup,
+    showToast,
     setSearchStringQueries,
     handleChangeSearchQueryData,
     handleSelectedRow,
     handleOnselectedNode,
+    handleSelectedToCopy,
   };
 };
 

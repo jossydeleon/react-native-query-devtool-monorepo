@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { ReactNode, useCallback } from "react";
 
 import { ScrollView, Text, View } from "react-native";
@@ -8,25 +7,23 @@ import JSONTree from "react-native-json-tree";
 import getNodeValue from "../../utils/getNodeValue";
 import CopyButton from "../CopyButton";
 import SearchButton from "../SearchButton";
-import Toast from "../Toast";
 import theme from "./treeTheme";
-import useJSONTreeData from "./useJSONTreeData";
 
 import { styles } from "./styles";
 
 interface Props {
   data: any;
   searchTerm: string;
+  onSelectedToCopy: (node: any) => void;
   onSelectedNode: (nodeTitle: string, node: any) => void;
 }
 
 const JSONTreeData: React.FC<Props> = ({
   data,
   searchTerm,
+  onSelectedToCopy,
   onSelectedNode,
 }) => {
-  const { showToast, handleShowToast } = useJSONTreeData();
-
   /**
    * Returns a custom Text with the Copy Icon for Nodes
    * @param type - The type of the node.
@@ -40,7 +37,7 @@ const JSONTreeData: React.FC<Props> = ({
       type: any,
       dataRendered: any,
       itemType: ReactNode,
-      itemString: string | number | undefined,
+      itemString: string | number | undefined
     ) => {
       return (
         <View style={styles.valueContainer}>
@@ -50,17 +47,12 @@ const JSONTreeData: React.FC<Props> = ({
           </Text>
 
           {type === "Object" || type === "Array" || type === "Iterable" ? (
-            <CopyButton
-              onPress={() => {
-                console.log("📋", JSON.stringify(dataRendered));
-                handleShowToast();
-              }}
-            />
+            <CopyButton onPress={() => onSelectedToCopy(dataRendered)} />
           ) : null}
         </View>
       );
     },
-    [handleShowToast],
+    [onSelectedToCopy]
   );
 
   /**
@@ -92,8 +84,8 @@ const JSONTreeData: React.FC<Props> = ({
             nodeType !== "Iterable" && (
               <CopyButton
                 onPress={() => {
-                  console.log("📋", getNodeValue(data, keyPath));
-                  handleShowToast();
+                  const value = getNodeValue(data, keyPath);
+                  onSelectedToCopy(value);
                 }}
               />
             )}
@@ -101,7 +93,7 @@ const JSONTreeData: React.FC<Props> = ({
         </View>
       );
     },
-    [data, handleShowToast, onSelectedNode],
+    [data, onSelectedToCopy, onSelectedNode]
   );
 
   /**
@@ -138,8 +130,6 @@ const JSONTreeData: React.FC<Props> = ({
         labelRenderer={labelRenderer}
         valueRenderer={valueRenderer}
       />
-
-      {showToast && <Toast message="Value was printed in your terminal" />}
     </ScrollView>
   );
 };

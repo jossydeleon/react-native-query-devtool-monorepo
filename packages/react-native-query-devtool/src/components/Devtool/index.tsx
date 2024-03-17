@@ -9,6 +9,7 @@ import CloseButton from "../CloseButton";
 import DataExplorer from "../DataExplorer";
 import QueryRow from "../QueryRow";
 import Searchbar from "../Searchbar";
+import Toast from "../Toast";
 import useDevtoolData from "./useDevtoolData";
 
 import { styles } from "./styles";
@@ -22,11 +23,13 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
     searchRef,
     searchStringQueries,
     searchStringData,
+    dataToLookup,
+    showToast,
     setSearchStringQueries,
     handleChangeSearchQueryData,
     handleSelectedRow,
     handleOnselectedNode,
-    dataToLookup,
+    handleSelectedToCopy,
   } = useDevtoolData(props);
 
   const renderHeader = () => (
@@ -70,6 +73,7 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
         <DataExplorer
           searchTerm={searchStringData}
           selectedQueryData={filteredData ?? selectedQuery?.data}
+          onSelectedToCopy={handleSelectedToCopy}
           onSelectedNode={handleOnselectedNode}
         />
       </View>
@@ -77,41 +81,44 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
   };
 
   return (
-    <ActionsheetScrollview
-      nestedScrollEnabled
-      stickyHeaderIndices={[0, 2]}
-      style={styles.actionScrollviewContainer}
-    >
-      {renderHeader()}
-      <ScrollView
-        horizontal
-        scrollEnabled={false}
-        style={[
-          selectedQuery ? styles.collapsedFlatlist : styles.expandedFlatlist,
-        ]}
+    <React.Fragment>
+      {showToast && <Toast message="Value was printed in your terminal" />}
+      <ActionsheetScrollview
+        nestedScrollEnabled
+        stickyHeaderIndices={[0, 2]}
+        style={styles.actionScrollviewContainer}
       >
-        <FlatList
-          ref={flalistRef}
-          data={filteredQueries}
-          style={[styles.queriesFlatlist]}
-          renderItem={({ item, index }) => (
-            <QueryRow
-              index={index}
-              item={item}
-              isSelected={item.queryKey === selectedQuery?.queryKey}
-              handleSelectedRow={handleSelectedRow}
-            />
-          )}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-          ListEmptyComponent={
-            <Text style={styles.flatlistEmptyMessage}>No queries found</Text>
-          }
-        />
-      </ScrollView>
+        {renderHeader()}
+        <ScrollView
+          horizontal
+          scrollEnabled={false}
+          style={[
+            selectedQuery ? styles.collapsedFlatlist : styles.expandedFlatlist,
+          ]}
+        >
+          <FlatList
+            ref={flalistRef}
+            data={filteredQueries}
+            style={[styles.queriesFlatlist]}
+            renderItem={({ item, index }) => (
+              <QueryRow
+                index={index}
+                item={item}
+                isSelected={item.queryKey === selectedQuery?.queryKey}
+                handleSelectedRow={handleSelectedRow}
+              />
+            )}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
+            ListEmptyComponent={
+              <Text style={styles.flatlistEmptyMessage}>No queries found</Text>
+            }
+          />
+        </ScrollView>
 
-      {renderDataExplorerHeader()}
-      {renderDataExplorer()}
-    </ActionsheetScrollview>
+        {renderDataExplorerHeader()}
+        {renderDataExplorer()}
+      </ActionsheetScrollview>
+    </React.Fragment>
   );
 };
 

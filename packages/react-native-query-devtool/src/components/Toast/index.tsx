@@ -42,12 +42,13 @@ const Toast: React.FC<Props> = ({ message, duration = 5000 }) => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    top: 20,
+    bottom: 50,
     left: 20,
     right: 20,
     backgroundColor: "rgba(0, 0, 0, 0.8)",
     borderRadius: 5,
     padding: 10,
+    zIndex: 99,
   },
   message: {
     textAlign: "center",
