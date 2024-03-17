@@ -5,6 +5,10 @@
 - Provides a component for integrating query data in React Native applications running react-query v3, and @tanstack/react-query v4 and v5.
 - (Optional) Includes a standalone app to visualize and help debug query data. [Download latest App](https://github.com/jossydeleon/react-native-query-devtool-monorepo/releases)
 
+<p align="center">
+  <img src="https://github.com/jossydeleon/react-native-query-devtool-monorepo/assets/25192002/59dfd4cb-dac6-401c-954b-8c949648db6f" alt="rqndtmobile2" style="display: block; margin: auto;">
+</p>
+
 ## Installation
 
 To use the devtool component in your React Native project, install the package using `npm` or `yarn`, You will also need to install `react-native-gesture-handlers` if you haven't already.
