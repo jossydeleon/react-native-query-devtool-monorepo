@@ -1,15 +1,15 @@
-import React, { ReactNode, useCallback } from "react";
+import React, { ReactNode, useCallback } from 'react';
 
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from 'react-native';
 
-import JSONTree from "react-native-json-tree";
+import JSONTree from 'react-native-json-tree';
 
-import getNodeValue from "../../utils/getNodeValue";
-import CopyButton from "../CopyButton";
-import SearchButton from "../SearchButton";
-import theme from "./treeTheme";
+import getNodeValue from '../../utils/getNodeValue';
+import CopyButton from '../CopyButton';
+import SearchButton from '../SearchButton';
+import theme from './treeTheme';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 interface Props {
   data: any;
@@ -37,7 +37,7 @@ const JSONTreeData: React.FC<Props> = ({
       type: any,
       dataRendered: any,
       itemType: ReactNode,
-      itemString: string | number | undefined
+      itemString: string | number | undefined,
     ) => {
       return (
         <View style={styles.valueContainer}>
@@ -46,13 +46,13 @@ const JSONTreeData: React.FC<Props> = ({
             <Text>{` ${itemString}`}</Text>
           </Text>
 
-          {type === "Object" || type === "Array" || type === "Iterable" ? (
+          {type === 'Object' || type === 'Array' || type === 'Iterable' ? (
             <CopyButton onPress={() => onSelectedToCopy(dataRendered)} />
           ) : null}
         </View>
       );
     },
-    [onSelectedToCopy]
+    [onSelectedToCopy],
   );
 
   /**
@@ -63,7 +63,7 @@ const JSONTreeData: React.FC<Props> = ({
    */
   const labelRenderer = useCallback(
     (keyPath: string[], nodeType?: unknown) => {
-      if (nodeType === "Array") {
+      if (nodeType === 'Array') {
         return (
           <View style={styles.valueContainer}>
             <SearchButton
@@ -79,9 +79,9 @@ const JSONTreeData: React.FC<Props> = ({
 
       return (
         <View style={styles.valueContainer}>
-          {nodeType !== "Object" &&
-            nodeType !== "Array" &&
-            nodeType !== "Iterable" && (
+          {nodeType !== 'Object' &&
+            nodeType !== 'Array' &&
+            nodeType !== 'Iterable' && (
               <CopyButton
                 onPress={() => {
                   const value = getNodeValue(data, keyPath);
@@ -93,7 +93,7 @@ const JSONTreeData: React.FC<Props> = ({
         </View>
       );
     },
-    [data, onSelectedToCopy, onSelectedNode]
+    [data, onSelectedToCopy, onSelectedNode],
   );
 
   /**
@@ -102,7 +102,7 @@ const JSONTreeData: React.FC<Props> = ({
   const valueRenderer = (value: any) => {
     if (!searchTerm.trim()) return value;
 
-    const regex = new RegExp(searchTerm, "gi");
+    const regex = new RegExp(searchTerm, 'gi');
     const parts = value.toString().split(regex);
 
     return parts.map((part: string, index: number) => (
@@ -120,11 +120,11 @@ const JSONTreeData: React.FC<Props> = ({
         theme={{
           ...theme,
           valueLabel: {
-            fontWeight: "bold",
-            fontFamily: "Courier New",
+            fontWeight: 'bold',
+            fontFamily: 'Courier New',
           },
         }}
-        keyPath={["data"]}
+        keyPath={['data']}
         invertTheme={false}
         getItemString={getItemStringRenderer}
         labelRenderer={labelRenderer}

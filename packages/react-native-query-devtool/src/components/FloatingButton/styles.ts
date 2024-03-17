@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     zIndex: 9999,
-    position: "absolute",
+    position: 'absolute',
     bottom: 50,
     left: 30,
     borderRadius: 100,
@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
   image: {
     width: 40,
     height: 40,
-    objectFit: "contain",
+    objectFit: 'contain',
   },
 });

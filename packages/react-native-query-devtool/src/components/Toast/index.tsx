@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { Animated, StyleSheet, Text } from "react-native";
+import { Animated, StyleSheet, Text } from 'react-native';
 
 interface Props {
   message: string;
@@ -41,20 +41,20 @@ const Toast: React.FC<Props> = ({ message, duration = 5000 }) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 50,
     left: 20,
     right: 20,
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     borderRadius: 5,
     padding: 10,
     zIndex: 99,
   },
   message: {
-    textAlign: "center",
-    color: "white",
-    fontWeight: "bold",
-    fontFamily: "Courier New",
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'Courier New',
   },
 });
 

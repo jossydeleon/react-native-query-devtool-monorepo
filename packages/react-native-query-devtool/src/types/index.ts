@@ -1,4 +1,4 @@
-export type ReactQueryVersion = "v3" | "v4" | "v5";
+export type ReactQueryVersion = 'v3' | 'v4' | 'v5';
 
 export type QueryKey = string | string[];
 
@@ -20,19 +20,19 @@ export type QueryDevtoolData = {
 };
 
 export type ListenerV3 =
-  | "queryAdded"
-  | "queryUpdated"
-  | "queryRemoved"
-  | "observerAdded"
-  | "observerRemoved"
-  | "observerResultsUpdated";
+  | 'queryAdded'
+  | 'queryUpdated'
+  | 'queryRemoved'
+  | 'observerAdded'
+  | 'observerRemoved'
+  | 'observerResultsUpdated';
 
 export type ListenerV4 =
-  | "added"
-  | "updated"
-  | "removed"
-  | "observerAdded"
-  | "observerRemoved"
-  | "observerResultsUpdated";
+  | 'added'
+  | 'updated'
+  | 'removed'
+  | 'observerAdded'
+  | 'observerRemoved'
+  | 'observerResultsUpdated';
 
 export type ListenerEventType = ListenerV3 | ListenerV4;

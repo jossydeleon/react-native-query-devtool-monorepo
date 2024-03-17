@@ -1,23 +1,23 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { FlatList, TextInput } from "react-native";
+import { FlatList, TextInput } from 'react-native';
 
 import {
   ListenerEventType,
   QueryDevtoolData,
   QueryDevtoolProps,
   QueryKey,
-} from "../../types";
-import fuzzySearch from "../../utils/fuzzySearch";
+} from '../../types';
+import fuzzySearch from '../../utils/fuzzySearch';
 import {
   getQueryDevtoolData,
   handleQueryDevtoolData,
-} from "../../utils/queryListener";
+} from '../../utils/queryListener';
 
-import useDebounce from "../../hooks/useDebounce";
+import useDebounce from '../../hooks/useDebounce';
 
 const useDevtoolData = (props: QueryDevtoolProps) => {
-  const { queryClient, version = "v5" } = props;
+  const { queryClient, version = 'v5' } = props;
 
   const isInitialized = useRef(false);
   const flalistRef = useRef<FlatList>(null);
@@ -27,8 +27,8 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
   const [queries, setQueries] = useState<QueryDevtoolData[]>([]);
   const [selectedQueryKey, setSelectedQueryKey] = useState<QueryKey>();
 
-  const [searchStringQueries, setSearchStringQueries] = useState("");
-  const [searchStringData, setSearchStringData] = useState("");
+  const [searchStringQueries, setSearchStringQueries] = useState('');
+  const [searchStringData, setSearchStringData] = useState('');
   const [showToast, setShowToast] = useState(false);
 
   // State to determine where to search (2nd Searchbar)
@@ -76,7 +76,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
 
       setQueries((prevData) => {
         const queryKeyIndex = prevData.findIndex(
-          (item) => item.queryKey === queryKey
+          (item) => item.queryKey === queryKey,
         );
 
         return handleQueryDevtoolData(
@@ -84,7 +84,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
           listenerType,
           queryKeyIndex,
           query,
-          [...prevData]
+          [...prevData],
         );
       });
     });
@@ -98,9 +98,9 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
     () =>
       queries.find(
         (query) =>
-          JSON.stringify(query?.queryKey) === JSON.stringify(selectedQueryKey)
+          JSON.stringify(query?.queryKey) === JSON.stringify(selectedQueryKey),
       ),
-    [selectedQueryKey, queries]
+    [selectedQueryKey, queries],
   );
 
   const filteredQueries = useMemo(
@@ -109,14 +109,14 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
         query.queryKey
           ?.toString()
           .toLowerCase()
-          .includes(searchStringQueries.toLowerCase())
+          .includes(searchStringQueries.toLowerCase()),
       ),
-    [queries, searchStringQueries]
+    [queries, searchStringQueries],
   );
 
   const handleSelectedRow = useCallback(
     (indexRow?: number) => {
-      if (typeof indexRow !== "number") {
+      if (typeof indexRow !== 'number') {
         setSelectedQueryKey(undefined);
         return;
       }
@@ -126,7 +126,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
       const queryKey = queriesSource[indexRow].queryKey;
 
       setSelectedQueryKey((prev) => (prev !== queryKey ? queryKey : undefined));
-      setSearchStringData("");
+      setSearchStringData('');
       setDataToLookup(undefined);
 
       timeoutRef.current = setTimeout(() => {
@@ -139,7 +139,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
         });
       }, 200);
     },
-    [queries, filteredQueries, searchStringQueries]
+    [queries, filteredQueries, searchStringQueries],
   );
 
   const handleShowToast = () => {
@@ -161,7 +161,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
   const handleChangeSearchQueryData = (searchTerm: string) => {
     setSearchStringData(searchTerm);
 
-    if (searchTerm.trim() === "" || searchTerm.trim().length <= 2) {
+    if (searchTerm.trim() === '' || searchTerm.trim().length <= 2) {
       setFilteredData(undefined);
     } else {
       handleSearch(searchTerm);
@@ -169,7 +169,7 @@ const useDevtoolData = (props: QueryDevtoolProps) => {
   };
 
   const handleSelectedToCopy = (node: any) => {
-    console.log("📋", JSON.stringify(node));
+    console.log('📋', JSON.stringify(node));
     handleShowToast();
   };
 

@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, ScrollView, Text, View } from 'react-native';
 
-import { ScrollView as ActionsheetScrollview } from "react-native-actions-sheet";
+import { ScrollView as ActionsheetScrollview } from 'react-native-actions-sheet';
 
-import { QueryDevtoolProps } from "../../types";
-import CloseButton from "../CloseButton";
-import DataExplorer from "../DataExplorer";
-import QueryRow from "../QueryRow";
-import Searchbar from "../Searchbar";
-import Toast from "../Toast";
-import useDevtoolData from "./useDevtoolData";
+import { QueryDevtoolProps } from '../../types';
+import CloseButton from '../CloseButton';
+import DataExplorer from '../DataExplorer';
+import QueryRow from '../QueryRow';
+import Searchbar from '../Searchbar';
+import Toast from '../Toast';
+import useDevtoolData from './useDevtoolData';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const Devtool: React.FC<QueryDevtoolProps> = (props) => {
   const {
@@ -58,7 +58,7 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
           placeholder={
             dataToLookup?.nodeTitle
               ? `Search in '${dataToLookup?.nodeTitle}'`
-              : "Search in 'data'"
+              : 'Search in \'data\''
           }
         />
       </View>

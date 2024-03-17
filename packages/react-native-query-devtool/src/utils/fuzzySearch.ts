@@ -5,10 +5,10 @@
  * @returns - Returns true if the search term is found, else false.
  */
 const checkProperty = (value: any, searchTerm: string): boolean => {
-  if (typeof value === "string" && value.toLowerCase().includes(searchTerm)) {
+  if (typeof value === 'string' && value.toLowerCase().includes(searchTerm)) {
     return true;
   }
-  if (typeof value === "object") {
+  if (typeof value === 'object') {
     return Object.values(value).some((nestedValue) =>
       checkProperty(nestedValue, searchTerm),
     );
@@ -16,7 +16,7 @@ const checkProperty = (value: any, searchTerm: string): boolean => {
   if (Array.isArray(value)) {
     return value.some(
       (item) =>
-        typeof item === "string" && item.toLowerCase().includes(searchTerm),
+        typeof item === 'string' && item.toLowerCase().includes(searchTerm),
     );
   }
   return false;

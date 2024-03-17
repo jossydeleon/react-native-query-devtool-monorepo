@@ -14,7 +14,9 @@
     "build-client": "cd ./packages/react-native-query-devtool && tsup",
     "publish-client": "cd ./packages/react-native-query-devtool && yarn publish --access public",
     "v3-example-ios": "cd ./example/react-query-v3 && expo start --ios",
-    "v3-example-android": "cd ./example/react-query-v3 && expo start --android"
+    "v3-example-android": "cd ./example/react-query-v3 && expo start --android",
+    "run-linters": "prettier --write && eslint --fix",
+    "prepare": "husky"
   },
   "workspaces": [
     "packages/*"
@@ -26,13 +28,26 @@
     "devtool"
   ],
   "type": "module",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier ./packages/react-native-query-devtool/src --write",
+      "eslint ./packages/react-native-query-devtool/src --fix"
+    ]
+  },
   "devDependencies": {
     "@types/node": "^20.11.8",
     "@types/react": "^18.2.48",
     "@types/react-native": "^0.72.8",
     "@types/react-query": "^1.2.9",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
     "babel-core": "^4.7.16",
     "babel-runtime": "^6.26.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.34.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.1.1",
     "react-native": "^0.72.9",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.1",

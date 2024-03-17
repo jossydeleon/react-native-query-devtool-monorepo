@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 const useDebounce = <T extends any[]>(
   callback: (...args: T) => void,

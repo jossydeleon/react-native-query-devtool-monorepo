@@ -1,23 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 import {
   ListenerEventType,
   QueryDevtoolData,
   QueryDevtoolProps,
-} from "../types";
-import debounce from "../utils/debounce";
-import { isDevMode } from "../utils/isDevMode";
+} from '../types';
+import debounce from '../utils/debounce';
+import { isDevMode } from '../utils/isDevMode';
 import {
   getQueryDevtoolData,
   handleQueryDevtoolData,
-} from "../utils/queryListener";
+} from '../utils/queryListener';
 
 const PORT = 9017;
 
 const useRemoteDevtool = (props: QueryDevtoolProps) => {
-  const { queryClient, version = "v5" } = props;
+  const { queryClient, version = 'v5' } = props;
 
   const websocket = useRef<WebSocket>();
   const timeoutRef = useRef<NodeJS.Timeout>();
@@ -38,7 +38,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
 
     const createWebSocket = () => {
       websocket.current = new WebSocket(
-        Platform.OS === "ios"
+        Platform.OS === 'ios'
           ? `ws://localhost:${PORT}`
           : `ws://10.0.2.2:${PORT}`,
       );
@@ -46,7 +46,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
       // When connection is established with server, all queries are sent once
       websocket.current.onopen = () => {
         setConnnected(true);
-        console.log("✅ Conected with Native Query Devtool");
+        console.log('✅ Conected with Native Query Devtool');
 
         const allQueries = queryClient
           .getQueryCache()
@@ -97,7 +97,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
 
       const query = listener.query;
 
-      let queryKeyIndex = queryDevtoolDataRef.current.findIndex(
+      const queryKeyIndex = queryDevtoolDataRef.current.findIndex(
         (item) => item.queryKey === queryKey,
       );
 

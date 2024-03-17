@@ -1,12 +1,12 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react';
 
-import { Image, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { styles } from "./style";
-import SearchbarProps from "./types";
+import { styles } from './style';
+import SearchbarProps from './types';
 
 const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
-  { filter, placeholder = "Filter", setFilter },
+  { filter, placeholder = 'Filter', setFilter },
   ref,
 ) => {
   return (
@@ -25,9 +25,9 @@ const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
         <TouchableOpacity
           style={styles.clearButton}
           activeOpacity={0.8}
-          onPress={() => setFilter("")}
+          onPress={() => setFilter('')}
         >
-          <Image source={require("../../../assets/clear.png")} />
+          <Image source={require('../../../assets/clear.png')} />
         </TouchableOpacity>
       )}
     </View>
