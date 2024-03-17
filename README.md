@@ -32,7 +32,7 @@ export default function App() {
       <View style={styles.container}>
         <Main />
       </View>
-      <QueryNativeDevtool queryClient={queryClient} useRemoteDebugger={false} />
+      <QueryNativeDevtool queryClient={queryClient} useRemoteDevtool={false} />
     </QueryClientProvider>
   );
 }
@@ -49,7 +49,7 @@ If your app runs `react-query v3` pass `version="v3"` prop to `QueryNativeDevtoo
 | `queryClient`\*      | QueryClient | First name of the user                     | undefined     |
 | `version`            | string      | Last name of the user                      | "v5"          |
 | `hideFloatingButton` | boolean     | Hides Floating button                      | false         |
-| `useRemoteDebugger`  | boolean     | Enable remote debugging via standalone app | false         |
+| `useRemoteDevtool`   | boolean     | Enable remote debugging via standalone app | true          |
 
 ## Standalone app (Optional)
 
@@ -59,7 +59,7 @@ If you want more room to debug your query data, you can download the standalone 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <QueryNativeDevtool queryClient={queryClient} useRemoteDebugger={true} />
+      <QueryNativeDevtool queryClient={queryClient} useRemoteDevtool={true} />
     </QueryClientProvider>
   );
 }

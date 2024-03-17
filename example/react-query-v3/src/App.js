@@ -21,7 +21,7 @@ export default function App() {
       <QueryNativeDevtool
         queryClient={queryClient}
         version="v3"
-        useRemoteDebugger={false}
+        useRemoteDevtool={false}
       />
     </SafeAreaView>
   );

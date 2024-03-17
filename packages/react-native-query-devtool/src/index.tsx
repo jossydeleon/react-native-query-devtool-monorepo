@@ -13,7 +13,7 @@ const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
   queryClient,
   version = "v5",
   hideFloatingButton = false,
-  useRemoteDebugger = false,
+  useRemoteDevtool = true,
 }) => {
   const actionSheetRef = useRef<ActionSheetRef>(null);
 
@@ -32,7 +32,7 @@ const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
         <FloatingButton onPress={() => actionSheetRef.current?.show()} />
       )}
 
-      {useRemoteDebugger && (
+      {useRemoteDevtool && (
         <RemoteDebugger queryClient={queryClient} version={version} />
       )}
     </React.Fragment>
