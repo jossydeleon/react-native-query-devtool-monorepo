@@ -27,7 +27,7 @@ const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
           activeOpacity={0.8}
           onPress={() => setFilter('')}
         >
-          <Image source={require('../../../assets/clear.png')} />
+          <Image source={require('../../assets/clear.png')} />
         </TouchableOpacity>
       )}
     </View>
