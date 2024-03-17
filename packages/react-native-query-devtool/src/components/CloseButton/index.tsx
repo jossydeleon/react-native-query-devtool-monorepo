@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from "react-native";
 
-const CloseButton: React.FC<{ onPress: () => void }> = ({ onPress }) => {
+interface Props {
+  onPress: () => void;
+}
+
+const CloseButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <View style={styles.close} />
@@ -14,15 +18,15 @@ const styles = StyleSheet.create({
   container: {
     width: 40,
     height: 20,
-    alignContent: 'center',
-    justifyContent: 'center',
+    alignContent: "center",
+    justifyContent: "center",
   },
   close: {
     width: 20,
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end",
     borderWidth: 2,
     borderRadius: 3,
-    borderColor: 'white',
+    borderColor: "white",
   },
 });
 

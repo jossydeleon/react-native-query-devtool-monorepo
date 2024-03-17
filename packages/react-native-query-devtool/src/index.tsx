@@ -6,7 +6,7 @@ import ActionSheet, { ActionSheetRef } from "react-native-actions-sheet";
 
 import Devtool from "./components/Devtool";
 import FloatingButton from "./components/FloatingButton";
-import RemoteDebugger from "./components/RemoteDebugger";
+import RemoteDebugger from "./components/RemoteDevtool";
 import { QueryDevtoolProps } from "./types";
 
 const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
@@ -18,7 +18,7 @@ const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
   const actionSheetRef = useRef<ActionSheetRef>(null);
 
   return (
-    <>
+    <React.Fragment>
       <ActionSheet
         ref={actionSheetRef}
         containerStyle={styles.container}
@@ -35,7 +35,7 @@ const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
       {useRemoteDebugger && (
         <RemoteDebugger queryClient={queryClient} version={version} />
       )}
-    </>
+    </React.Fragment>
   );
 };
 

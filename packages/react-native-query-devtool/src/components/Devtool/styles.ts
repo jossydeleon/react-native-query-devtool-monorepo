@@ -11,11 +11,14 @@ export const styles = StyleSheet.create({
     paddingBottom: 1,
   },
   headerContainer: {
+    backgroundColor: "#132337",
+  },
+  headerTitleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#132337",
     padding: 10,
+    paddingBottom: 0,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },

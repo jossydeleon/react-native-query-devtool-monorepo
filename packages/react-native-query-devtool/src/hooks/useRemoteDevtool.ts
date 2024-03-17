@@ -40,13 +40,13 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
       websocket.current = new WebSocket(
         Platform.OS === "ios"
           ? `ws://localhost:${PORT}`
-          : `ws://10.0.2.2:${PORT}`
+          : `ws://10.0.2.2:${PORT}`,
       );
 
       // When connection is established with server, all queries are sent once
       websocket.current.onopen = () => {
         setConnnected(true);
-        console.info("✅ Conected with Native Query Devtool");
+        console.log("✅ Conected with Native Query Devtool");
 
         const allQueries = queryClient
           .getQueryCache()
@@ -80,7 +80,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
 
     const debounceProcessAndSendData = debounce(
       (queryData: QueryDevtoolData[]) => sendData(queryData),
-      400
+      400,
     );
 
     const subscribe = queryClient.getQueryCache().subscribe((listener: any) => {
@@ -98,7 +98,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
       const query = listener.query;
 
       let queryKeyIndex = queryDevtoolDataRef.current.findIndex(
-        (item) => item.queryKey === queryKey
+        (item) => item.queryKey === queryKey,
       );
 
       queryDevtoolDataRef.current = handleQueryDevtoolData(
@@ -106,7 +106,7 @@ const useRemoteDevtool = (props: QueryDevtoolProps) => {
         listenerType,
         queryKeyIndex,
         query,
-        queryDevtoolDataRef.current
+        queryDevtoolDataRef.current,
       );
 
       debounceProcessAndSendData(queryDevtoolDataRef.current);

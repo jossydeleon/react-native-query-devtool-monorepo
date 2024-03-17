@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Text, StyleSheet, Animated } from "react-native";
+import React, { useEffect, useState } from "react";
 
-const Toast: React.FC<{ message: string; duration?: number }> = ({
-  message,
-  duration = 5000,
-}) => {
+import { Animated, StyleSheet, Text } from "react-native";
+
+interface Props {
+  message: string;
+  duration?: number;
+}
+
+const Toast: React.FC<Props> = ({ message, duration = 5000 }) => {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {

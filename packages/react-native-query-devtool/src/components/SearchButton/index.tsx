@@ -6,11 +6,11 @@ interface Props {
   onPress?: () => void;
 }
 
-const CopyButton: React.FC<Props> = ({ onPress }) => {
+const SearchButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <Image
-        source={require("../../../assets/copy.png")}
+        source={require("../../../assets/search.png")}
         style={styles.container}
       />
     </Pressable>
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CopyButton;
+export default SearchButton;

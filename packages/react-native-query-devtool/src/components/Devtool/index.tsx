@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ScrollView, Text, View, FlatList } from "react-native";
+import { FlatList, ScrollView, Text, View } from "react-native";
 
 import { ScrollView as ActionsheetScrollview } from "react-native-actions-sheet";
 
@@ -17,15 +17,25 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
   const {
     filteredQueries,
     selectedQuery,
-    filter,
     flalistRef,
-    setFilter,
+    filteredData,
+    searchRef,
+    searchStringQueries,
+    searchStringData,
+    setSearchStringQueries,
+    handleChangeSearchQueryData,
     handleSelectedRow,
+    handleOnselectedNode,
+    dataToLookup,
   } = useDevtoolData(props);
 
   const renderHeader = () => (
     <View style={styles.searchbarContainer}>
-      <Searchbar filter={filter} setFilter={setFilter} />
+      <Searchbar
+        filter={searchStringQueries}
+        setFilter={setSearchStringQueries}
+        placeholder="Filter queries"
+      />
     </View>
   );
 
@@ -33,12 +43,22 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
     if (!selectedQuery) return null;
 
     return (
-      <>
-        <View style={styles.headerContainer}>
+      <View style={styles.headerContainer}>
+        <View style={styles.headerTitleContainer}>
           <Text style={styles.headerText}>Data Explorer</Text>
           <CloseButton onPress={() => handleSelectedRow()} />
         </View>
-      </>
+        <Searchbar
+          ref={searchRef}
+          filter={searchStringData}
+          setFilter={handleChangeSearchQueryData}
+          placeholder={
+            dataToLookup?.nodeTitle
+              ? `Search in '${dataToLookup?.nodeTitle}'`
+              : "Search in 'data'"
+          }
+        />
+      </View>
     );
   };
 
@@ -47,7 +67,11 @@ const Devtool: React.FC<QueryDevtoolProps> = (props) => {
 
     return (
       <View style={styles.dataExplorerContainer}>
-        <DataExplorer selectedQuery={selectedQuery?.data} />
+        <DataExplorer
+          searchTerm={searchStringData}
+          selectedQueryData={filteredData ?? selectedQuery?.data}
+          onSelectedNode={handleOnselectedNode}
+        />
       </View>
     );
   };
