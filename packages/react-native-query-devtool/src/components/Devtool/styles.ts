@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   actionScrollviewContainer: {
@@ -6,35 +6,35 @@ export const styles = StyleSheet.create({
     maxHeight: 500,
   },
   searchbarContainer: {
-    backgroundColor: "#0b1521",
+    backgroundColor: '#0b1521',
     padding: 2,
     paddingBottom: 1,
   },
   headerContainer: {
-    backgroundColor: "#132337",
+    backgroundColor: '#132337',
   },
   headerTitleContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 10,
     paddingBottom: 0,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
   headerText: {
-    color: "white",
+    color: 'white',
   },
   queriesContainer: {
     padding: 10,
   },
   queriesFlatlist: {
-    width: Dimensions.get("screen").width,
+    width: Dimensions.get('screen').width,
     paddingHorizontal: 2,
   },
   flatlistEmptyMessage: {
-    color: "white",
-    textAlign: "center",
+    color: 'white',
+    textAlign: 'center',
   },
   expandedFlatlist: {
     height: 400,
@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
   },
   separator: {
     borderBottomWidth: 0.3,
-    borderColor: "silver",
+    borderColor: 'silver',
     marginVertical: 5,
   },
   dataExplorerContainer: {

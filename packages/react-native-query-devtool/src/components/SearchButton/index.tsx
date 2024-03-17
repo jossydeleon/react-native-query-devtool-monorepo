@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Image, Pressable, StyleSheet } from "react-native";
+import { Image, Pressable, StyleSheet } from 'react-native';
 
 interface Props {
   onPress?: () => void;
@@ -10,7 +10,7 @@ const SearchButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <Image
-        source={require("../../../assets/search.png")}
+        source={require('../../../assets/search.png')}
         style={styles.container}
       />
     </Pressable>

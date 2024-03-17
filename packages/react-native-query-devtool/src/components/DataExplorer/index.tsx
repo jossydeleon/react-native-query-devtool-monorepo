@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { View } from "react-native";
+import { View } from 'react-native';
 
-import JSONTreeData from "../JSONTreeData";
-import { styles } from "./style";
+import JSONTreeData from '../JSONTreeData';
+import { styles } from './style';
 
 interface Props {
   selectedQueryData: any;

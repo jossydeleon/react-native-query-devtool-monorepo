@@ -11,7 +11,7 @@ function getNodeValue(data: any, keyPath: string[]) {
   const reversedKeyPath = keyPath.slice(0, -1).reverse();
 
   for (const key of reversedKeyPath) {
-    if (typeof value[key] === "object") {
+    if (typeof value[key] === 'object') {
       value = value[key];
     } else {
       return value[key];

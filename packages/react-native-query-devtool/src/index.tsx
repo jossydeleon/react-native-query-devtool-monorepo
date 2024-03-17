@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react';
 
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
-import ActionSheet, { ActionSheetRef } from "react-native-actions-sheet";
+import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
 
-import Devtool from "./components/Devtool";
-import FloatingButton from "./components/FloatingButton";
-import RemoteDebugger from "./components/RemoteDevtool";
-import { QueryDevtoolProps } from "./types";
+import Devtool from './components/Devtool';
+import FloatingButton from './components/FloatingButton';
+import RemoteDebugger from './components/RemoteDevtool';
+import { QueryDevtoolProps } from './types';
 
 const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
   queryClient,
-  version = "v5",
+  version = 'v5',
   hideFloatingButton = false,
   useRemoteDevtool = true,
 }) => {
@@ -41,7 +41,7 @@ const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#0b1521",
+    backgroundColor: '#0b1521',
   },
 });
 

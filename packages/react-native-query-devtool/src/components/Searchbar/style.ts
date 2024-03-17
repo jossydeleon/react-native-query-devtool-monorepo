@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     padding: 5,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   clearButton: {
-    position: "absolute",
+    position: 'absolute',
     top: 12,
     right: 18,
     zIndex: 999,
