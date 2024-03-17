@@ -19,7 +19,7 @@ const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
         autoCapitalize="none"
         placeholder={placeholder}
         placeholderTextColor="gray"
-        clearButtonMode="while-editing"
+        clearButtonMode="never"
       />
       {filter.length > 0 && (
         <TouchableOpacity
