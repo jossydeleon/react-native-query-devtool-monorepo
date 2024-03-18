@@ -4,6 +4,7 @@ import { Image, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './style';
 import SearchbarProps from './types';
+import Icons from '../../utils/images';
 
 const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
   { filter, placeholder = 'Filter', setFilter },
@@ -27,7 +28,11 @@ const Searchbar: React.ForwardRefRenderFunction<TextInput, SearchbarProps> = (
           activeOpacity={0.8}
           onPress={() => setFilter('')}
         >
-          <Image source={require('../../../assets/clear.png')} />
+          <Image
+            source={{
+              uri: Icons.SearchIcon,
+            }}
+          />
         </TouchableOpacity>
       )}
     </View>
