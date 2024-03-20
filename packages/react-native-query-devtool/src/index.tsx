@@ -4,10 +4,10 @@ import { StyleSheet } from 'react-native';
 
 import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
 
-import Devtool from './components/Devtool';
-import FloatingButton from './components/FloatingButton';
-import RemoteDebugger from './components/RemoteDevtool';
-import { QueryDevtoolProps } from './types';
+import Devtool from '../src/components/Devtool';
+import FloatingButton from '../src/components/FloatingButton';
+import RemoteDebugger from '../src/components/RemoteDevtool';
+import { QueryDevtoolProps } from '../src/types';
 
 const QueryNativeDevtool: React.FC<QueryDevtoolProps> = ({
   queryClient,
