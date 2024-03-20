@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Image, Pressable, StyleSheet } from 'react-native';
-import Icons from '../../utils/images';
+
+import copyIcon from '../../../assets/copy.png';
 
 interface Props {
   onPress?: () => void;
@@ -10,12 +11,7 @@ interface Props {
 const CopyButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
-      <Image
-        source={{
-          uri: Icons.CopyIcon,
-        }}
-        style={styles.container}
-      />
+      <Image source={copyIcon} style={styles.container} />
     </Pressable>
   );
 };
