@@ -1,9 +1,10 @@
-import { registerRootComponent } from "expo";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, SafeAreaView } from "react-native";
-import { Users } from "./components/Users";
-import { QueryNativeDevtool } from "@jsmdeleon/react-native-query-devtool/src";
+import React from 'react';
+import { registerRootComponent } from 'expo';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View, Text, SafeAreaView } from 'react-native';
+import { Users } from './components/Users';
+import { QueryNativeDevtool } from '@jsmdeleon/react-native-query-devtool';
 
 const queryClient = new QueryClient();
 
@@ -30,14 +31,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
-    justifyContent: "center",
+    backgroundColor: '#000',
+    justifyContent: 'center',
   },
   title: {
-    color: "white",
+    color: 'white',
     fontSize: 17,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 

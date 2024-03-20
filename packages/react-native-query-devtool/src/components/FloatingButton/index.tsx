@@ -3,7 +3,8 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 
 import { styles } from './styles';
-import Icons from '../../utils/images';
+
+import rqLogo from '../../../assets/rqlogo.png';
 
 interface Props {
   onPress: () => void;
@@ -16,12 +17,7 @@ const FloatingButton: React.FC<Props> = ({ onPress }) => {
       onPress={onPress}
       style={styles.container}
     >
-      <Image
-        style={styles.image}
-        source={{
-          uri: Icons.RQLogo,
-        }}
-      />
+      <Image style={styles.image} source={rqLogo} />
     </TouchableOpacity>
   );
 };

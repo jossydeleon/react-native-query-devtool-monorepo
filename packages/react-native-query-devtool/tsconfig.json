@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
+    "module": "CommonJS",
     "allowJs": true,
-    "module": "commonjs",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "packages/react-native-query-devtool/dist",
+    "baseUrl": "./src",
+    "outDir": "./dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
-  "include": ["packages/react-native-query-devtool/src/**/*"]
+  "include": ["./src/**/*", "./assets/**/*"],
+  "exclude": ["node_modules"]
 }

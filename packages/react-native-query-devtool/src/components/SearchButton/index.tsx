@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Image, Pressable, StyleSheet } from 'react-native';
-import Icons from '../../utils/images';
+
+import searchIcon from '../../../assets/search.png';
 
 interface Props {
   onPress?: () => void;
@@ -10,12 +11,7 @@ interface Props {
 const SearchButton: React.FC<Props> = ({ onPress }) => {
   return (
     <Pressable onPress={onPress}>
-      <Image
-        source={{
-          uri: Icons.SearchIcon,
-        }}
-        style={styles.container}
-      />
+      <Image source={searchIcon} style={styles.container} />
     </Pressable>
   );
 };
